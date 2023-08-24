@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'datos.php';
+require '../Model/datos.php';
 
     $cone = new Conexion();
 
@@ -26,10 +26,11 @@ require 'datos.php';
         if($consulta==TRUE){
             $_SESSION['mensaje'] = "Resultado médico subido exitosamente.";
             $_SESSION['alert_type'] = "success";
-            header('Location: ../views/admin.php');
+            header('Location: ../Views/admin.php');
         }else{
             $_SESSION['mensaje'] = "Error al subir los resultado médico.";
             $_SESSION['alert_type'] = "danger";
+            header('Location: ../Views/formulario.examenes.php');
         }
 
     }

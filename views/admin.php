@@ -12,8 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/bootstrap.min.css">
-    <link rel="icon" type="image/png" href="../model/uploads/imagenes/favicon.png"/>
+    <link rel="stylesheet" href="../Styles/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="../Img/favicon.png"/>
     <link rel="stylesheet" href="ruta_a_bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
@@ -27,7 +27,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="../model/uploads/imagenes/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
+                <img src="../Img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
                 HemoHearth</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
                         <a class="nav-link dropdown-toggle" href="#"><i class="bi bi-person-fill"></i> Admin</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li class="dropdown-submenu">
-                              <a class="dropdown-item" href="logout.php">Cerrar sesión</a>
+                              <a class="dropdown-item" href="../Controller/logout.php">Cerrar sesión</a>
                             </li>
                         </ul>
                     </li>
@@ -82,7 +82,7 @@
       </tr>
       </thead>
       <?php
-      require '../model/datos.php';
+      require '../Model/datos.php';
       $buscar = pacientes();
       while ($datos = mysqli_fetch_array($buscar)) {
       ?>
@@ -95,7 +95,7 @@
       <th scope="col"><?php echo $datos[5]?></td>
       <th scope="col"><?php echo $datos[6]?></td>
       <th scope="col"><?php echo $datos[7]?></td>
-          <th scope="col"><a class="btn btn-info" href="formulario.examenes.php?resultado=<?php echo $datos[0];?>"><i class="bi bi-file-medical"></i> Examen</a>
+          <th scope="col"><a class="btn btn-info" href="formulario.examenes.php?resultado=<?php echo $datos[0];?>"><i class="bi bi-file-medical"></i> Subir</a>
           </th>
     </tr>
       <?php
@@ -121,7 +121,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
     <script>
         const $dropdown = $(".dropdown");
         const $dropdownToggle = $(".dropdown-toggle");
