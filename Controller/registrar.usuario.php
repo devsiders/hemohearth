@@ -1,6 +1,6 @@
 <?php
 
-require '../Model/datos.php';
+require '../model/datos.php';
 
 $cone = new Conexion();
 
@@ -35,7 +35,7 @@ if(!empty($_POST['nombre']) && !empty($_POST['apellido'])){
     if($consulta && $consulta2){
         $_SESSION['mensaje'] = "Registrado con éxito.";
         $_SESSION['alert_type'] = "success";
-        header('Location: ../Views/login.php');
+        header('Location: ../views/login.php');
     }elseif ($idS !== null) {
          $id=traerId('pacientes',$email,'email');
          $traerID = mysqli_insert_id($conexion);
@@ -44,12 +44,12 @@ if(!empty($_POST['nombre']) && !empty($_POST['apellido'])){
     }elseif($consulta && ($idS === null || $consulta1)){
         $_SESSION['mensaje'] = "Registrado con éxito.";
         $_SESSION['alert_type'] = "success";
-        header("Location: ../Views/login.php");
+        header("Location: ../views/login.php");
     }
 }else{
     $_SESSION['mensaje'] = "Ha ocurrido un error al registrarse.";
     $_SESSION['alert_type'] = "danger";
-    header("Location: ../Views/login.php");
+    header("Location: ../views/login.php");
 }
 
 ?>

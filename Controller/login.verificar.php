@@ -2,7 +2,7 @@
 
 session_start();
 
-require '../Model/config.php';
+require '../model/config.php';
 
 if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 
@@ -24,21 +24,21 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
         if ($_SESSION['rol'] == 1) {
             $_SESSION['mensaje'] = "Inicio de sesión exitosamente.";
             $_SESSION['alert_type'] = "success";
-            header("Location: ../Views/admin.php");
+            header("Location: ../views/admin.php");
         }else {
             $_SESSION['mensaje'] = "Inicio de sesión exitosamente.";
             $_SESSION['alert_type'] = "success";
-            header("Location: ../Views/usuario.php");
+            header("Location: ../views/usuario.php");
         }         
     }else{
         $_SESSION['mensaje'] = "Correo y/o contraseña incorrecta.";
         $_SESSION['alert_type'] = "danger";
-        header("Location: ../Views/login.php");
+        header("Location: ../views/login.php");
     }
 }else {
     $_SESSION['mensaje'] = "Completa todos los campos.";
     $_SESSION['alert_type'] = "warning";
-    header("Location: ../Views/login.php");
+    header("Location: ../views/login.php");
     exit;
 }
 

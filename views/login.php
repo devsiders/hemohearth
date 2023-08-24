@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../Img/favicon.png"/>
+    <link rel="icon" type="image/png" href="../img/favicon.png"/>
     <title>HemoHearth</title>
-    <link rel="stylesheet" href="../Styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
@@ -22,7 +22,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="../Img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
+                <img src="../img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
                 HemoHearth</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -123,7 +123,7 @@
     
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-        <script src="../Scripts/bootstrap.min.js"></script>
+        <script src="../scripts/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
