@@ -46,7 +46,7 @@
                         <a class="nav-link dropdown-toggle" href="#login.html"><i class="bi bi-person-fill"></i> Admin</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li class="dropdown-submenu">
-                              <a class="dropdown-item" href="../Controller/logout.php">Cerrar sesión</a>
+                              <a class="dropdown-item" href="../controller/logout.php">Cerrar sesión</a>
                             </li>
                         </ul>
                     </li>
@@ -63,7 +63,7 @@
                         <h4>Resultados médicos</h4>
                     </div>
                     <div class="card-body">
-                        <form action="../Controller/resultado.examenes.php" method="POST">
+                        <form action="../controller/resultado.examenes.php" method="POST">
                             <input type="hidden" name="id" value="<?php echo $datos['id'];?>">
                             <div class="form-group">
                                 <label for="nombre">Nombre completo</label>

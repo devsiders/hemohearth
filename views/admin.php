@@ -38,7 +38,7 @@
                         <a class="nav-link dropdown-toggle" href="#"><i class="bi bi-person-fill"></i> Admin</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li class="dropdown-submenu">
-                              <a class="dropdown-item" href="../Controller/logout.php">Cerrar sesión</a>
+                              <a class="dropdown-item" href="../controller/logout.php">Cerrar sesión</a>
                             </li>
                         </ul>
                     </li>

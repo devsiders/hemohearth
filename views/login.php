@@ -36,7 +36,7 @@
                         <div class="card">
                             <div class="card-header">Login</div>
                             <div class="card-body">
-                                <form id="loginFormulario" action="../Controller/login.verificar.php" method="POST">
+                                <form id="loginFormulario" action="../controller/login.verificar.php" method="POST">
                                     <div class="form-group">
                                         <label for="loginEmail">Correo electrónico</label>
                                         <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
@@ -65,7 +65,7 @@
                         <div class="card">
                             <div class="card-header">Registro</div>
                             <div class="card-body">
-                                <form id="registroFormulario" action="../Controller/registrar.usuario.php" method="POST">
+                                <form id="registroFormulario" action="../controller/registrar.usuario.php" method="POST">
                                     <div class="form-group">
                                         <label for="nombre">Nombre</label>
                                         <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
