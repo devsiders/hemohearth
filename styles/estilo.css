@@ -6,5 +6,24 @@ pb-5, .py-5 {
     padding-bottom: 5rem!important;
 }
 
+.jumbotron {
+    background-image: url('../Img/slide-medicina.png');
+    background-size: cover;
+    height: 400px;
+    text-align: right;
+    background-position: center;
+    padding-top: 100px;
+    background-color: rgba(33, 94, 97, 0.5); 
+    position: relative;
+    background-blend-mode: multiply;
+}
+
+.header-text {
+    top: 200px;
+    left: 100px;
+    color: rgb(255, 255, 255);
+    position: absolute;
+}
+
 
 
