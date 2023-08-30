@@ -95,7 +95,7 @@
       <th scope="col"><?php echo $datos[5]?></td>
       <th scope="col"><?php echo $datos[6]?></td>
       <th scope="col"><?php echo $datos[7]?></td>
-          <th scope="col"><a class="btn btn-info" href="formulario.examenes.php?resultado=<?php echo $datos[0];?>"><i class="bi bi-file-medical"></i> Subir</a>
+          <th scope="col"><a class="btn btn-info" href="formulario.examenes.php?resultado=<?php echo $datos[0];?>"><i class="bi bi-file-medical"></i></a>
           </th>
     </tr>
       <?php

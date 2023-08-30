@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -39,11 +40,21 @@
                                 <form id="loginFormulario" action="../controller/login.verificar.php" method="POST">
                                     <div class="form-group">
                                         <label for="loginEmail">Correo electrónico</label>
-                                        <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
+                                        <div class="input-group">
+                                            <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
+                                                <div class="input-group-append">
+                                                     <button class="btn btn-info" disabled><i class="bi bi-envelope"></i></button>
+                                                </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="loginPassword">Contraseña</label>
-                                        <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" required>
+                                        <div class="input-group">
+                                            <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" required>
+                                                <div class="input-group-append">
+                                                     <button class="btn btn-info" disabled><i class="bi bi-key"></i></button>
+                                                </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <input type="checkbox" name="vercontrasena">
@@ -55,32 +66,38 @@
                             </div>
                         </div>
                     </div>
-                        <?php if (isset($_SESSION['mensaje'])): ?>
-                        <div class="alert alert-<?php echo $_SESSION['alert_type']; ?>">
-                            <?php echo $_SESSION['mensaje']; ?>
-                        </div>
-                        <?php unset($_SESSION['mensaje']); unset($_SESSION['alert_type']); ?>
+                    <?php if (isset($_SESSION['mensaje'])): ?>
+                    <div class="alert alert-<?php echo $_SESSION['alert_type']; ?>">
+                         <?php echo $_SESSION['mensaje']; ?>
+                    </div>
+                    <?php unset($_SESSION['mensaje']); unset($_SESSION['alert_type']); ?>
                     <?php endif; ?>
                     <div id="registroFormulario" class="hidden">
                         <div class="card">
                             <div class="card-header">Registro</div>
                             <div class="card-body">
                                 <form id="registroFormulario" action="../controller/registrar.usuario.php" method="POST">
-                                    <div class="form-group">
-                                        <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="apellido">Apellido</label>
-                                        <input type="text" class="form-control" name="apellido" placeholder="Apellido" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tdd">Tipo de documento</label>
-                                        <input type="text" class="form-control" name="td" placeholder="CC, CE, PA, LM" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="docu">Número de documento</label>
-                                        <input type="text" class="form-control" name="documento" placeholder="Documento" required>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                 <label for="nombre">Nombre</label>
+                                                 <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
+                                            </div>
+                                            <div class="form-group">
+                                                 <label for="tdd">Tipo de documento</label>
+                                                 <input type="text" class="form-control" name="td" placeholder="CC, CE, PA, LM" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                 <label for="apellido">Apellido</label>
+                                                 <input type="text" class="form-control" name="apellido" placeholder="Apellido" required>
+                                            </div>
+                                            <div class="form-group">
+                                                 <label for="docu">Número de documento</label>
+                                                 <input type="text" class="form-control" name="documento" placeholder="Documento" required>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="registroeps">Eps</label>
