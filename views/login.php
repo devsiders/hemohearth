@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" href="../Img/favicon.png"/>
     <title>HemoHearth</title>
     <link rel="stylesheet" href="../styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../../styles/estilo.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
@@ -41,7 +42,7 @@
                                     <div class="form-group">
                                         <label for="loginEmail">Correo electrónico</label>
                                         <div class="input-group">
-                                            <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
+                                            <input type="email" class="form-control" name="email" placeholder="Correo electrónico">
                                                 <div class="input-group-append">
                                                      <button class="btn btn-info" disabled><i class="bi bi-envelope"></i></button>
                                                 </div>
@@ -50,14 +51,14 @@
                                     <div class="form-group">
                                         <label for="loginPassword">Contraseña</label>
                                         <div class="input-group">
-                                            <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" required>
+                                            <input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Contraseña">
                                                 <div class="input-group-append">
                                                      <button class="btn btn-info" disabled><i class="bi bi-key"></i></button>
                                                 </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="checkbox" name="vercontrasena">
+                                        <input type="checkbox" id="vercontrasena">
                                         <label for="VerPassword">¿Mostrar contraseña?</label>
                                     </div>
                                     <button type="submit" class="btn bg-info btn-block text-white">Iniciar sesión</button>
@@ -66,12 +67,6 @@
                             </div>
                         </div>
                     </div>
-                    <?php if (isset($_SESSION['mensaje'])): ?>
-                    <div class="alert alert-<?php echo $_SESSION['alert_type']; ?>">
-                         <?php echo $_SESSION['mensaje']; ?>
-                    </div>
-                    <?php unset($_SESSION['mensaje']); unset($_SESSION['alert_type']); ?>
-                    <?php endif; ?>
                     <div id="registroFormulario" class="hidden">
                         <div class="card">
                             <div class="card-header">Registro</div>
@@ -143,6 +138,7 @@
         <script src="../scripts/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 
         <script>
             const loginForm = document.getElementById('loginFormulario');
@@ -161,9 +157,15 @@
             });
         </script>
         <script>
-            $(".multiple-select").select2({
-               //maximumSelectionLength: 2
-            });
+        $(document).ready(function () {
+        $('#vercontrasena').click(function () {
+            if ($('#vercontrasena').is(':checked')) {
+            $('#contrasena').attr('type', 'text');
+            } else {
+            $('#contrasena').attr('type', 'password');
+            }
+        });
+        });
         </script>
 </body>
 </html>
