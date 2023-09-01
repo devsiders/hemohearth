@@ -31,16 +31,16 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
             header("Location: ../views/usuario.php");
         }         
     }else{
-        $_SESSION['alerta'] = "Correo y/o contraseña incorrecta.";
+        $_SESSION['mensaje'] = "Correo y/o contraseña incorrecta.";
         $_SESSION['alert_type'] = "danger";
         header("Location: ../views/login.php");
-        exit;
+        exit();
     }
 }else {
-    $_SESSION['alerta'] = "Completa todos los campos.";
+    $_SESSION['mensaje'] = "Completa todos los campos.";
     $_SESSION['alert_type'] = "warning";
     header("Location: ../views/login.php");
-    exit;
+    exit();
 }
 
 ?>
