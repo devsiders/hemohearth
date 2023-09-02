@@ -62,6 +62,13 @@ $datos = mysqli_fetch_assoc($s);
     <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-md-6">
+            <?php if (isset($_SESSION['mensaje'])): ?>
+                <div class="alert alert-<?php echo $_SESSION['alert_type']; ?>">
+                     <?php echo $_SESSION['mensaje']; ?>
+                </div>
+            <?php unset($_SESSION['mensaje']);
+                 unset($_SESSION['alert_type']); ?>
+            <?php endif; ?>
                 <div class="card">
                     <div class="card-header">
                         <h4>Resultados médicos</h4>
@@ -81,8 +88,7 @@ $datos = mysqli_fetch_assoc($s);
                             </div>
                             <div class="form-group">
                                 <label for="email">Resultado </label>
-                                <input type="number" class="form-control" name="resultado"
-                                    value="<?php echo $datos['resultado']; ?>" required>
+                                <input type="number" class="form-control" name="resultado" value="<?php echo $datos['resultado']; ?>" required>
                             </div>
                             <button type="submit" class="btn btn-success">Enviar</button>
                             <input type="button" class="btn btn-light" value="Volver" onClick="history.go(-1);">

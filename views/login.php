@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="../../styles/estilo.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -37,7 +36,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <?php if (isset($_SESSION['mensaje'])): ?>
+                <?php session_start(); if (isset($_SESSION['mensaje'])): ?>
                     <div class="alert alert-<?php echo $_SESSION['alert_type']; ?>">
                         <?php echo $_SESSION['mensaje']; ?>
                     </div>
@@ -52,18 +51,16 @@
                                 <div class="form-group">
                                     <label for="loginEmail">Correo electrónico</label>
                                     <div class="input-group">
-                                        <input type="email" class="form-control" name="email" required>
+                                        <input type="email" class="form-control bg-light" name="email">
                                         <div class="input-group-append">
-                                            <button class="input-group-text" disabled><i
-                                                    class="bi bi-envelope"></i></button>
+                                            <button class="input-group-text" disabled><i class="bi bi-envelope"></i></button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="loginPassword">Contraseña</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control" name="contrasena" id="contrasena"
-                                            required>
+                                        <input type="password" class="form-control bg-light" name="contrasena" id="contrasena">
                                         <div class="input-group-append">
                                             <button class="input-group-text" disabled><i class="bi bi-key"></i></button>
                                         </div>
@@ -74,8 +71,7 @@
                                     <label for="VerPassword">¿Mostrar contraseña?</label>
                                 </div>
                                 <button type="submit" class="btn bg-info btn-block text-white">Iniciar sesión</button>
-                                <p class="mt-3">¿No tienes una cuenta? <a href="#" id="switchToRegister">Registrate
-                                        aquí</a></p>
+                                <p class="mt-3">¿No tienes una cuenta? <a href="#" id="switchToRegister">Registrate aquí</a></p>
                             </form>
                         </div>
                     </div>
@@ -89,36 +85,35 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="nombre">Nombre</label>
-                                            <input type="text" class="form-control" name="nombre" required>
+                                            <input type="text" class="form-control bg-light" name="nombre" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="tdd">Tipo de documento</label>
-                                            <input type="text" class="form-control" name="td"
-                                                placeholder="CC, CE, PA, LM" required>
+                                            <input type="text" class="form-control bg-light" name="td" placeholder="CC, CE, PA, LM" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="apellido">Apellido</label>
-                                            <input type="text" class="form-control" name="apellido" required>
+                                            <input type="text" class="form-control bg-light" name="apellido" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="docu">Número de documento</label>
-                                            <input type="text" class="form-control" name="documento" required>
+                                            <input type="text" class="form-control bg-light" name="documento" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="registroeps">Eps</label>
-                                    <input type="text" class="form-control" name="eps" required>
+                                    <input type="text" class="form-control bg-light" name="eps" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Correo electrónico</label>
-                                    <input type="email" class="form-control" name="correo" required>
+                                    <input type="email" class="form-control bg-light" name="correo" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="clave">Contraseña</label>
-                                    <input type="password" class="form-control" name="clave" required>
+                                    <input type="password" class="form-control bg-light" name="clave" required>
                                 </div>
                                 <div class="form-group">
                                     <small class="col-10 form-text text-muted">Tiene alguno de estos sintomas</small>
