@@ -36,9 +36,8 @@ if (!empty($_POST['nombre']) && !empty($_POST['apellido'])) {
     if ($consulta && $consulta2) {
         $_SESSION['mensaje'] = "Registrado con éxito.";
         $_SESSION['alert_type'] = "success";
-        header('Location: ../views/login.php');
-    } elseif ($idS !== null) { 
-        // Si se proporcionó un síntoma válido, se intenta insertar'.
+        header("Location: ../views/login.php");
+    } elseif ($idS !== null) { // Si se proporcionó un síntoma válido, se intenta insertar'.
         $id = traerId('pacientes', $email, 'email');
         $traerID = mysqli_insert_id($conexion);
         $sql2 = "INSERT INTO pacientes_patologias (id_paciente,id_patologia)  VALUES('$traerID','$idS')";
@@ -47,12 +46,12 @@ if (!empty($_POST['nombre']) && !empty($_POST['apellido'])) {
         // Si no se proporcionó un síntoma o se insertó, redirige a la página de inicio de sesión con un mensaje de éxito.
         $_SESSION['mensaje'] = "Registrado con éxito.";
         $_SESSION['alert_type'] = "success";
-        header('Location: ../views/login.php');
+        header("Location: ../views/login.php");
     }
 } else {
     $_SESSION['mensaje'] = "Ha ocurrido un error al registrarse.";
     $_SESSION['alert_type'] = "danger";
-    header('Location: ../views/login.php');
+    header("Location: ../views/login.php");
 }
 
 ?>
