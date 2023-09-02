@@ -76,29 +76,40 @@ if (!isset($_SESSION['rol'])) {
         unset($_SESSION['alert_type']); ?>
       <?php endif; ?>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3">
           <div class="form-group">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" class="form-control" readonly value="<?php echo $nombre; ?> <?php echo $apellido; ?>">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" readonly value="<?php echo $nombre; ?>">
+          </div>
+          <div class="form-group">
+            <label for="documento">Tipo de Documento</label>
+            <input type="text" class="form-control" readonly value="<?php echo $td; ?>">
+          </div>
+        </div>
+        <div class="col-md-3">
+        <div class="form-group">
+            <label for="nombre">Apellido</label>
+            <input type="text" class="form-control" readonly value="<?php echo $apellido; ?>">
           </div>
           <div class="form-group">
             <label for="documento">Documento</label>
-            <input type="text" class="form-control" readonly value="<?php echo $td; ?>. <?php echo $documento; ?>">
+            <input type="text" class="form-control" readonly value="<?php echo $documento; ?>">
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
+        <div class="col-md-4">
+        <div class="form-group">
             <label for="eps">EPS</label>
             <input type="text" class="form-control" readonly value="<?php echo $eps; ?>">
-          </div>
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
           <div class="form-group">
             <label for="email">Correo electrónico</label>
             <input type="text" class="form-control" readonly value="<?php echo $email; ?>">
           </div>
         </div>
-      </div>
-      <div class="text-left">
-        <button type="submit" class="btn btn-info">Actualizar</button>
       </div>
     </form>
   </div>
