@@ -3,12 +3,11 @@ session_start();
 
 if ($_SESSION['rol'] != 1) {
   header("Location: usuario.php");
-  exit();
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -19,9 +18,6 @@ if ($_SESSION['rol'] != 1) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <title>HemoHearth</title>
 </head>
 
@@ -62,18 +58,6 @@ if ($_SESSION['rol'] != 1) {
       <?php unset($_SESSION['mensaje']);
       unset($_SESSION['alert_type']); ?>
     <?php endif; ?>
-    <div class="row">
-      <div class="col-md-6 offset-md-6">
-        <form action="admin.php" method="GET">
-          <div class="input-group">
-            <input type="text" class="form-control" name="busqueda" placeholder="Buscar">
-            <div class="input-group-append">
-              <button class="btn btn-dark" type="submit"><i class="bi bi-search"></i></button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div><br>
     <table id="table" class="table table-bordered">
       <thead class="thead-dark">
         <tr>
@@ -115,31 +99,14 @@ if ($_SESSION['rol'] != 1) {
             <th scope="col">
               <?php echo $datos[7] ?>
               </td>
-            <th scope="col"><a class="btn btn-info" href="formulario.examenes.php?resultado=<?php echo $datos[0]; ?>"><i
+            <th scope="col"><a class="btn btn-dark" href="formulario.examenes.php?resultado=<?php echo $datos[0]; ?>"><i
                   class="bi bi-file-medical"></i></a>
             </th>
           </tr>
-          <?php
-      }
-      ?>
+      <?php } ?>
       </tbody>
     </table>
-
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-end">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1">Anterior</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Siguiente</a>
-        </li>
-      </ul>
-    </nav>
   </div>
-
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="../scripts/bootstrap.min.js"></script>

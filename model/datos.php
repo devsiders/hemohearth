@@ -75,4 +75,17 @@ function traerId($tabla, $nombre, $campo = 'nombre')
     }
     return $datos;
 }
+
+function pacientesConPaginacion($por_pagina, $offset) {
+    $conexion = new Conexion();
+    $cone = $conexion->conectar("hemohearth");
+
+    $sql = "SELECT * FROM pacientes LIMIT $offset, $por_pagina";
+    $consulta = $conexion->ejecutar($cone, $sql);
+
+    return $consulta;
+}
+
+
+
 ?>

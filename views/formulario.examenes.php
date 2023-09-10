@@ -19,7 +19,7 @@ $datos = mysqli_fetch_assoc($s);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,7 @@ $datos = mysqli_fetch_assoc($s);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>HemoHearth</title>
+    <title>Resultado médico</title>
 </head>
 
 <body>
@@ -71,7 +71,7 @@ $datos = mysqli_fetch_assoc($s);
             <?php endif; ?>
                 <div class="card">
                     <div class="card-header">
-                        <h4>Resultados médicos</h4>
+                        <h4>Resultado médico</h4>
                     </div>
                     <div class="card-body">
                         <form action="../controller/resultado.examenes.php" method="POST">

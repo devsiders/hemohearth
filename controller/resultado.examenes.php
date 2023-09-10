@@ -9,7 +9,7 @@ require '../model/datos.php';
         $id=$_GET['id'];
     }
     // Comprueba si se han enviado datos por POST (formulario se ha enviado).
-    if(!empty($_POST['resultado'])){
+    if(empty($_POST['resultado'])){
         // Obtiene los valores enviados por POST y los asigna a variables.
         $id=$_POST['id'];
         $nombre = $_POST['nombre'];
@@ -27,17 +27,17 @@ require '../model/datos.php';
         if($consulta){
             $_SESSION['mensaje'] = "Resultado médico subido exitosamente.";
             $_SESSION['alert_type'] = "success";
-            header('Location: ../views/admin.php');
+            header("Location: ../views/admin.php");
         }else{
             $_SESSION['mensaje'] = "Error al subir el resultado médico.";
             $_SESSION['alert_type'] = "danger";
-            header('Location: ../views/formulario.examenes.php');
+            header("Location: ../views/formulario.examenes.php");
         }
 
     }else {
         $_SESSION['mensaje'] = "Completa el campo.";
         $_SESSION['alert_type'] = "warning";
-        header('Location: ../views/formulario.examenes.php');
+        header("Location: ../views/formulario.examenes.php");
     }
 
 ?>
