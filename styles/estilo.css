@@ -25,6 +25,14 @@ pb-5, .py-5 {
     position: absolute;
 }
 
+.icon-lg {
+    font-size: 30px;
+}
 
+.social-icons {
+    font-size: 24px; 
+    margin: 10px; 
+    color: rgb(72, 66, 66);
+}
 
 

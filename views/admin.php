@@ -18,6 +18,8 @@ if ($_SESSION['rol'] != 1) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
   <title>HemoHearth</title>
 </head>
 
@@ -58,7 +60,7 @@ if ($_SESSION['rol'] != 1) {
       <?php unset($_SESSION['mensaje']);
       unset($_SESSION['alert_type']); ?>
     <?php endif; ?>
-    <table id="table" class="table table-bordered">
+    <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Nombre</th>
@@ -76,7 +78,6 @@ if ($_SESSION['rol'] != 1) {
       $buscar = pacientes();
       while ($datos = mysqli_fetch_array($buscar)) {
         ?>
-        <tbody>
           <tr>
             <th scope="col">
               <?php echo $datos[1] ?>
@@ -104,38 +105,19 @@ if ($_SESSION['rol'] != 1) {
             </th>
           </tr>
       <?php } ?>
-      </tbody>
     </table>
   </div>
+  <div class="mt-5"></div>
+
+  <footer class="bg-light text-center text-lg-start" style="background-color: #efd4d4;">
+        <div class="text-center p-3" style="background-color: rgba(241, 237, 237, 0.894);">
+             <p>&copy; 2023 HemoHearth. derechos reservados.</p>
+        </div>
+  </footer>
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="../scripts/bootstrap.min.js"></script>
-  <script>
-    const $dropdown = $(".dropdown");
-    const $dropdownToggle = $(".dropdown-toggle");
-    const $dropdownMenu = $(".dropdown-menu");
-    const showClass = "show";
-
-    $(window).on("load resize", function () {
-      if (this.matchMedia("(min-width: 768px)").matches) {
-        $dropdown.hover(
-          function () {
-            const $this = $(this);
-            $this.addClass(showClass);
-            $this.find($dropdownToggle).attr("aria-expanded", "true");
-            $this.find($dropdownMenu).addClass(showClass);
-          },
-          function () {
-            const $this = $(this);
-            $this.removeClass(showClass);
-            $this.find($dropdownToggle).attr("aria-expanded", "false");
-            $this.find($dropdownMenu).removeClass(showClass);
-          }
-        );
-      } else {
-        $dropdown.off("mouseenter mouseleave");
-      }
-    });
-  </script>
+  <script src="../scripts/submenu.js"></script>
 </body>
 </html>

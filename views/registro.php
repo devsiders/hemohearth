@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,6 +104,14 @@
             </div>
         </div>
     </div>
+
+    <div class="mt-5"></div>
+
+    <footer class="bg-light text-center text-lg-start" style="background-color: #efd4d4;">
+        <div class="text-center p-3" style="background-color: rgba(241, 237, 237, 0.894);">
+             <p>&copy; 2023 HemoHearth. derechos reservados.</p>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
