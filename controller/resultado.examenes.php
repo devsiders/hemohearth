@@ -20,9 +20,9 @@ require '../model/datos.php';
         // Utiliza la función 'traerId' para obtener el ID correspondiente al valor de 'id' y 'tabla'.
         $id=traerId($tabla,$id,'id');
 
-        $sql = "INSERT INTO examenes_medicos (id_paciente,resultado)  VALUES('$id','$resultado')";
+        $sql = "INSERT INTO resultados_medicos (id_paciente,resultado)  VALUES('$id','$resultado')";
 
-        $consulta = $cone->ejecutar($conexion, $sql, $id);
+        $consulta = $cone->ejecutar($conexion, $sql);
         // Comprueba si la consulta se ejecutó con éxito.
         if($consulta){
             $_SESSION['mensaje'] = "Resultado médico subido exitosamente.";
@@ -33,11 +33,6 @@ require '../model/datos.php';
             $_SESSION['alert_type'] = "danger";
             header("Location: ../views/formulario.examenes.php");
         }
-
-    }else {
-        $_SESSION['mensaje'] = "Completa el campo.";
-        $_SESSION['alert_type'] = "warning";
-        header("Location: ../views/formulario.examenes.php");
     }
 
 ?>

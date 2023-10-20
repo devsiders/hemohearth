@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../Img/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <title>Login</title>
-    <link rel="stylesheet" href="../styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/styles/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="../Img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
+                <img src="../assets/img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
                 HemoHearth</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,9 +41,9 @@
                         <div class="card-body">
                             <form action="../controller/login.verificar.php" method="POST">
                                 <div class="form-group">
-                                    <label for="loginEmail">Correo electrónico</label>
+                                    <label for="loginEmail">Email</label>
                                     <div class="input-group">
-                                        <input type="email" class="form-control bg-light" name="email">
+                                        <input type="email" class="form-control bg-light" name="email" placeholder="Correo electrónico">
                                         <div class="input-group-append">
                                             <button class="input-group-text" disabled><i class="bi bi-envelope"></i></button>
                                         </div>
@@ -52,7 +52,7 @@
                                 <div class="form-group">
                                     <label for="loginPassword">Contraseña</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control bg-light" name="contrasena" id="contrasena">
+                                        <input type="password" class="form-control bg-light" name="contrasena" id="contrasena" placeholder="Clave">
                                         <div class="input-group-append">
                                             <button class="input-group-text" disabled><i class="bi bi-key"></i></button>
                                         </div>
@@ -73,18 +73,12 @@
     </div>
     <div class="mt-5"></div>
 
-    <footer class="bg-light text-center text-lg-start" style="background-color: #efd4d4;">
-        <div class="text-center p-3" style="background-color: rgba(241, 237, 237, 0.894);">
-             <p>&copy; 2023 HemoHearth. derechos reservados.</p>
-        </div>
-    </footer>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../assets/scripts/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="../scripts/verpass.js"></script>
+    <script src="../assets/scripts/verpass.js"></script>
 </body>
 
 </html>

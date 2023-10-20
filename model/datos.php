@@ -12,7 +12,18 @@ function patologia()
     return $consulta;
 }
 
-function pacientes()
+function leerPacientes()
+{
+    $conexion = new Conexion();
+    $connect = $conexion->conectar('hemohearth');
+
+    $sql = "SELECT nombre, apellido, tipo_documento, documento, eps, email FROM pacientes";
+    $consulta = $conexion->ejecutar($connect, $sql);
+
+    return $consulta;
+}
+
+function pacientes_resultados()
 {
     $conexion = new Conexion();
     $connect = $conexion->conectar('hemohearth');
