@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <title>Registro</title>
-    <link rel="stylesheet" href="../styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/styles/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
@@ -30,7 +30,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <?php if (isset($_SESSION['mensaje'])): ?>
+                <?php session_start(); if (isset($_SESSION['mensaje'])): ?>
                     <div class="alert alert-<?php echo $_SESSION['alert_type']; ?>">
                         <?php echo $_SESSION['mensaje']; ?>
                     </div>
@@ -46,35 +46,40 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="nombre">Nombre</label>
-                                            <input type="text" class="form-control bg-light" name="nombre" required>
+                                            <input type="text" class="form-control bg-light" name="nombre" placeholder="Nombre" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="tdd">Tipo de documento</label>
-                                            <input type="text" class="form-control bg-light" name="td" placeholder="CC, CE, PA, LM" required>
-                                        </div>
+                                            <select name="td" class="form-control bg-light">
+                                                <option value="CC">Cédula de Ciudadanía</option>
+                                                <option value="CE">Cédula de Estranjería</option>
+                                                <option value="TI">Tarjeta de Identidad</option>
+                                                <option value="PP">Pasaporte</option>
+                                            </select>
+                                        </div>                                        
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="apellido">Apellido</label>
-                                            <input type="text" class="form-control bg-light" name="apellido" required>
+                                            <input type="text" class="form-control bg-light" name="apellido" placeholder="Apellido" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="docu">Número de documento</label>
-                                            <input type="text" class="form-control bg-light" name="documento" required>
+                                            <input type="text" class="form-control bg-light" name="documento" placeholder="Documento" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="registroeps">Eps</label>
-                                    <input type="text" class="form-control bg-light" name="eps" required>
+                                    <label for="registroeps">EPS</label>
+                                    <input type="text" class="form-control bg-light" name="eps" placeholder="Eps" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Correo electrónico</label>
-                                    <input type="email" class="form-control bg-light" name="correo" required>
+                                    <input type="email" class="form-control bg-light" name="correo" placeholder="Correo electrónico" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="clave">Contraseña</label>
-                                    <input type="password" class="form-control bg-light" name="clave" required>
+                                    <input type="password" class="form-control bg-light" name="clave" placeholder="Contraseña" required>
                                 </div>
                                 <div class="form-group">
                                     <small class="col-10 form-text text-muted">Tiene alguno de estos sintomas</small>
@@ -106,12 +111,6 @@
     </div>
 
     <div class="mt-5"></div>
-
-    <footer class="bg-light text-center text-lg-start" style="background-color: #efd4d4;">
-        <div class="text-center p-3" style="background-color: rgba(241, 237, 237, 0.894);">
-             <p>&copy; 2023 HemoHearth. derechos reservados.</p>
-        </div>
-    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>

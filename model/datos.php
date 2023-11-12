@@ -17,7 +17,9 @@ function leerPacientes()
     $conexion = new Conexion();
     $connect = $conexion->conectar('hemohearth');
 
-    $sql = "SELECT nombre, apellido, tipo_documento, documento, eps, email FROM pacientes";
+    $sql = "SELECT nombre, apellido, tipo_documento, documento, eps, email FROM pacientes 
+    INNER JOIN roles_usuario ON roles_usuario.id_usuario=pacientes.id INNER JOIN roles ON 
+    roles.id_rol=roles_usuario.id_rol WHERE roles.id_rol = 2";
     $consulta = $conexion->ejecutar($connect, $sql);
 
     return $consulta;
@@ -28,18 +30,12 @@ function pacientes_resultados()
     $conexion = new Conexion();
     $connect = $conexion->conectar('hemohearth');
 
-    $sql = "SELECT p.id, nombre, apellido, tipo_documento, documento, eps, email, resultado FROM pacientes p LEFT JOIN examenes_medicos e ON p.id = e.id_paciente";
-    $consulta = $conexion->ejecutar($connect, $sql);
-
-    return $consulta;
-}
-
-function traerEP($id)
-{
-    $conexion = new Conexion();
-    $connect = $conexion->conectar('hemohearth');
-
-    $sql = "SELECT p.id, nombre, apellido, tipo_documento, documento, resultado FROM pacientes p LEFT JOIN examenes_medicos e ON p.id = e.id_paciente WHERE p.id=" . $id;
+    $sql = "SELECT DISTINCT p.id, p.nombre, apellido, tipo_documento, documento, eps, email, e.resultado
+    FROM pacientes p 
+    LEFT JOIN resultados_medicos e ON p.id = e.id_paciente 
+    LEFT JOIN pacientes_patologias pp ON pp.id_paciente = p.id 
+    LEFT JOIN patologias pt ON pt.id = pp.id_patologia
+    WHERE pp.id_paciente IS NOT NULL";
     $consulta = $conexion->ejecutar($connect, $sql);
 
     return $consulta;
@@ -61,7 +57,7 @@ function resultados($id)
     $conexion = new Conexion();
     $cone = $conexion->conectar("hemohearth");
 
-    $sql = "SELECT * FROM examenes_medicos where id_paciente=" . $id;
+    $sql = "SELECT * FROM resultados_medicos where id_paciente=" . $id;
     $consulta = $conexion->ejecutar($cone, $sql);
 
     return $consulta;
@@ -86,17 +82,5 @@ function traerId($tabla, $nombre, $campo = 'nombre')
     }
     return $datos;
 }
-
-function pacientesConPaginacion($por_pagina, $offset) {
-    $conexion = new Conexion();
-    $cone = $conexion->conectar("hemohearth");
-
-    $sql = "SELECT * FROM pacientes LIMIT $offset, $por_pagina";
-    $consulta = $conexion->ejecutar($cone, $sql);
-
-    return $consulta;
-}
-
-
 
 ?>

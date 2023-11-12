@@ -72,7 +72,7 @@ if ($_SESSION['rol'] != 1) {
           </div>
           <div class="card-body">
             <p>En esta sección puedes gestionar todos los datos de los pacientes de la clínica.</p>
-            <a href="admin.php" class="btn btn-dark">Ver pacientes</a>
+            <a href="gstn.paciente.php" class="btn btn-dark">Ver pacientes</a>
           </div>
         </div>
       </div>
@@ -90,22 +90,11 @@ if ($_SESSION['rol'] != 1) {
       <div class="col-md-4">
         <div class="card">
           <div class="card-header">
-            <h5 class="card-title">Citas</h5>
-            </div>
-            <div class="card-body">
-            <p>En esta sección de citas te brinda la capacidad de gestionar las citas de los pacientes.</p>
-            <a href="#" class="btn btn-dark">Ver citas</a>
-            </div>
-        </div>
-        <div class="row">
-        <div class="col-md-4">
-        <div class="card">
-          <div class="card-header">
             <h5 class="card-title">Resultados médicos</h5>
           </div>
           <div class="card-body">
             <p>En esta sección puedes subir los resultados médicos de los pacientes.</p>
-            <a href="#" class="btn btn-dark">Ver resultados</a>
+            <a href="gstn.resultados.php" class="btn btn-dark">Ver resultados</a>
           </div>
         </div>
         </div>

@@ -26,7 +26,7 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
         if ($_SESSION['rol'] == 1) {
             $_SESSION['mensaje'] = "Inicio de sesión exitosamente.";
             $_SESSION['alert_type'] = "success";
-            header("Location: ../views/admin.php");
+            header("Location: ../views/panel.php");
         }else {
             $_SESSION['mensaje'] = "Inicio de sesión exitosamente.";
             $_SESSION['alert_type'] = "success";

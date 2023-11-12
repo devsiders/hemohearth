@@ -18,7 +18,8 @@ if ($_SESSION['rol'] != 1) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>Panel Administrativo</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+  <title>Pacientes</title>
 </head>
 
 <body>
@@ -51,7 +52,7 @@ if ($_SESSION['rol'] != 1) {
   </div>
 
   <div class="container mt-5">
-    <table class="table table-bordered">
+    <table id="miTabla" class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Nombre</th>
@@ -60,7 +61,6 @@ if ($_SESSION['rol'] != 1) {
           <th scope="col">Documento</th>
           <th scope="col">EPS</th>
           <th scope="col">Correo</th>
-          <th>
         </tr>
       </thead>
       <?php
@@ -87,9 +87,6 @@ if ($_SESSION['rol'] != 1) {
             <th scope="col">
               <?php echo $datos[5] ?>
               </td>
-            <th scope="col"><a class="btn btn-dark" href="#"><i class="fas fa-plus"></i> 
-            <a class="btn btn-dark" href="#"><i class="fas fa-edit"></i></a>
-            </th>
           </tr>
       <?php } ?>
     </table>
@@ -98,8 +95,15 @@ if ($_SESSION['rol'] != 1) {
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="../assets/scripts/bootstrap.min.js"></script>
   <script src="../assets/scripts/submenu.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('#miTabla').DataTable();
+    });
+</script>
 </body>
 </html>
