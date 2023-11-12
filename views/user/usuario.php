@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['rol'])) {
-  exit;
+     exit;
 }
 
 ?>
@@ -13,8 +13,8 @@ if (!isset($_SESSION['rol'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/styles/bootstrap.min.css">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="stylesheet" href="../../assets/styles/bootstrap.min.css">
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -25,7 +25,7 @@ if (!isset($_SESSION['rol'])) {
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="../assets/img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
+        <img src="../../assets/img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
         HemoHearth</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@ if (!isset($_SESSION['rol'])) {
             <a class="nav-link dropdown-toggle" href="#login.html"><i class="bi bi-person-fill"></i> Perfil</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li class="dropdown-submenu">
-                <a class="dropdown-item" href="../controller/logout.php">Cerrar sesión</a>
+                <a class="dropdown-item" href="../../controller/logout.php">Cerrar sesión</a>
               </li>
             </ul>
           </li>
@@ -46,7 +46,7 @@ if (!isset($_SESSION['rol'])) {
     </div>
   </nav>
   <?php
-  require '../model/datos.php';
+  require '../../model/datos.php';
 
   if (isset($_SESSION['id_persona'])) {
     $id = $_SESSION['id_persona'];
@@ -146,8 +146,8 @@ if (!isset($_SESSION['rol'])) {
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="../assets/scripts/bootstrap.min.js"></script>
-  <script src="../assets/scripts/submenu.js"></script>
+  <script src="../../assets/scripts/bootstrap.min.js"></script>
+  <script src="../../assets/scripts/submenu.js"></script>
 </body>
 
 </html>

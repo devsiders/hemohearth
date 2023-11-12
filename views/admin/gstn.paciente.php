@@ -12,8 +12,8 @@ if ($_SESSION['rol'] != 1) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/styles/bootstrap.min.css">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="stylesheet" href="../../assets/styles/bootstrap.min.css">
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
   <link rel="stylesheet" href="ruta_a_bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
@@ -26,7 +26,7 @@ if ($_SESSION['rol'] != 1) {
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="../assets/img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
+        <img src="../../assets/img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
         HemoHearth</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@ if ($_SESSION['rol'] != 1) {
             <a class="nav-link dropdown-toggle" href="#"><i class="fa fa-user"></i> Admin</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li class="dropdown-submenu">
-                <a class="dropdown-item" href="../controller/logout.php">Cerrar sesión</a>
+                <a class="dropdown-item" href="../../controller/logout.php">Cerrar sesión</a>
               </li>
             </ul>
           </li>
@@ -64,7 +64,7 @@ if ($_SESSION['rol'] != 1) {
         </tr>
       </thead>
       <?php
-      require '../model/datos.php';
+      require '../../model/datos.php';
       $buscar = leerPacientes();
       while ($datos = mysqli_fetch_array($buscar)) {
         ?>
@@ -98,8 +98,8 @@ if ($_SESSION['rol'] != 1) {
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="../assets/scripts/bootstrap.min.js"></script>
-  <script src="../assets/scripts/submenu.js"></script>
+  <script src="../../assets/scripts/bootstrap.min.js"></script>
+  <script src="../../assets/scripts/submenu.js"></script>
   <script>
     $(document).ready(function() {
         $('#miTabla').DataTable();

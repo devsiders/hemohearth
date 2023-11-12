@@ -31,7 +31,7 @@ require '../model/datos.php';
 
                 echo '<script>$(document).ready(function() { $("#miTabla").DataTable().ajax.reload(); });</script>';
 
-                header("Location: ../views/gstn.resultados.php");
+                header("Location: ../../views/admin/gstn.resultados.php");
                 exit();
             }
         } catch (Exception $e) {
@@ -39,7 +39,7 @@ require '../model/datos.php';
             $_SESSION['alert_type'] = "danger";
 
             // Redirige a la página de error.
-            header("Location: ../views/gstn.resultados.php");
+            header("Location: ../../views/admin/gstn.resultados.php");
             exit();
         }
         
