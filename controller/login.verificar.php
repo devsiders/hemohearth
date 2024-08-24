@@ -24,12 +24,8 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
         $_SESSION['id_persona'] = $filas['id'];
         // Comprueba el rol del usuario y redirige según el rol.
         if ($_SESSION['rol'] == 1) {
-            $_SESSION['mensaje'] = "Inicio de sesión exitosamente.";
-            $_SESSION['alert_type'] = "success";
             header("Location: ../views/admin/panel.php");
         }else {
-            $_SESSION['mensaje'] = "Inicio de sesión exitosamente.";
-            $_SESSION['alert_type'] = "success";
             header("Location: ../views/user/usuario.php");
         }         
     }else{

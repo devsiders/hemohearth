@@ -19,7 +19,7 @@ function leerPacientes()
 
     $sql = "SELECT nombre, apellido, tipo_documento, documento, eps, email FROM pacientes 
     INNER JOIN roles_usuario ON roles_usuario.id_usuario=pacientes.id INNER JOIN roles ON 
-    roles.id_rol=roles_usuario.id_rol WHERE roles.id_rol = 2";
+    roles.id_rol=roles_usuario.id_rol WHERE roles.id_rol = 2 ORDER BY pacientes.id DESC";
     $consulta = $conexion->ejecutar($connect, $sql);
 
     return $consulta;
@@ -35,7 +35,7 @@ function pacientes_resultados()
     LEFT JOIN resultados_medicos e ON p.id = e.id_paciente 
     LEFT JOIN pacientes_patologias pp ON pp.id_paciente = p.id 
     LEFT JOIN patologias pt ON pt.id = pp.id_patologia
-    WHERE pp.id_paciente IS NOT NULL";
+    WHERE pp.id_paciente IS NOT NULL ORDER BY p.id DESC";
     $consulta = $conexion->ejecutar($connect, $sql);
 
     return $consulta;

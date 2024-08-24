@@ -5,28 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <title>Login</title>
-    <link rel="stylesheet" href="../assets/styles/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="../assets/img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
-                HemoHearth</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
     <div class="container mt-5">
-        <div class="row justify-content-center">
+        <div class="row p-5 justify-content-center">
             <div class="col-md-6">
                 <?php session_start(); if (isset($_SESSION['mensaje'])): ?>
                     <div class="alert alert-<?php echo $_SESSION['alert_type']; ?>">
@@ -41,29 +25,29 @@
                         <div class="card-body">
                             <form action="../controller/login.verificar.php" method="POST">
                                 <div class="form-group">
-                                    <label for="loginEmail">Email</label>
+                                    <label for="email">Email</label>
                                     <div class="input-group">
-                                        <input type="email" class="form-control bg-light" name="email" placeholder="Correo electrónico">
+                                        <input type="email" class="form-control bg-light" name="email" id="email" placeholder="Correo electrónico">
                                         <div class="input-group-append">
                                             <button class="input-group-text" disabled><i class="bi bi-envelope"></i></button>
                                         </div>
                                     </div>
+                                    </label>
                                 </div>
-                                <div class="form-group">
-                                    <label for="loginPassword">Contraseña</label>
+                                <div class="form-group mt-3">
+                                    <label for="password">Contraseña</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control bg-light" name="contrasena" id="contrasena" placeholder="Clave">
+                                        <input type="password" class="form-control bg-light" name="contrasena" id="password" placeholder="Contraseña">
                                         <div class="input-group-append">
                                             <button class="input-group-text" disabled><i class="bi bi-key"></i></button>
                                         </div>
                                     </div>
+                                    
                                 </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="vercontrasena">
-                                    <label for="VerPassword">¿Mostrar contraseña?</label>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn bg-info mt-3 text-white">Iniciar sesión</button>
                                 </div>
-                                <button type="submit" class="btn bg-info btn-block text-white">Iniciar sesión</button>
-                                <p class="mt-3">¿No tienes una cuenta? <a href="registro.php" id="switchToRegister">Registrate aquí</a></p>
+                                <p class="mt-3">¿No tienes una cuenta? <a href="registro.php" class="text-decoration-none" id="switchToRegister">Registrate aquí</a></p>
                             </form>
                         </div>
                     </div>
@@ -72,13 +56,14 @@
         </div>
     </div>
     <div class="mt-5"></div>
+    <footer class="mt-5 bg-light text-center fixed-bottom text-lg-start" style="background-color: #efd4d4;">
+        <div class="text-center p-3" style="background-color: rgba(241, 237, 237, 0.894);">
+             <p>&copy; 2023 HemoHearth. derechos reservados.</p>
+        </div>
+    </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="../assets/scripts/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="../assets/scripts/verpass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

@@ -12,27 +12,40 @@ require '../model/datos.php';
         $resultado = $_POST['resultado'];
         $tabla = 'pacientes';
 
+        $conexion= $cone->conectar('hemohearth');
+
+        // Antes de insertar un nuevo resultado, verificamos si ya existe uno.
+        $sql_check = "SELECT * FROM resultados_medicos WHERE id_paciente = '$id'";
+        $consulta_check = $cone->ejecutar($conexion, $sql_check);
+
+
         try {
-            $conexion= $cone->conectar('hemohearth');
-            // Utiliza la función 'traerId' para obtener el ID correspondiente al valor de 'id' y 'tabla'.
-            $id=traerId($tabla,$id,'id');
-
-            $sql = "INSERT INTO resultados_medicos (id_paciente,resultado)  VALUES('$id','$resultado')";
-            $consulta = $cone->ejecutar($conexion, $sql);
-
-            // Comprueba si la consulta se ejecutó con éxito.
-            if($consulta){
-                $_SESSION['mensaje'] = "Resultado médico subido exitosamente.";
-                $_SESSION['alert_type'] = "success";
-                
-            }else{
-                $_SESSION['mensaje'] = "Error al subir el resultado médico.";
-                $_SESSION['alert_type'] = "danger";
-
-                echo '<script>$(document).ready(function() { $("#miTabla").DataTable().ajax.reload(); });</script>';
-
-                header("Location: ../../views/admin/gstn.resultados.php");
+            if (mysqli_num_rows($consulta_check) > 0) {
+                // Si ya existe un resultado, muestra un mensaje de error.
+                $_SESSION['mensaje'] = "El paciente ya cuenta con su resultado médico.";
+                $_SESSION['alert_type'] = "warning";
+                header("Location: ../views/admin/gstn.resultados.php");
                 exit();
+            } else {
+                // Utiliza la función 'traerId' para obtener el ID correspondiente al valor de 'id' y 'tabla'.
+                $id=traerId($tabla,$id,'id');
+
+                $sql = "INSERT INTO resultados_medicos (id_paciente,resultado)  VALUES('$id','$resultado')";
+                $consulta = $cone->ejecutar($conexion, $sql);
+
+                // Comprueba si la consulta se ejecutó con éxito.
+                if($consulta){
+                    $_SESSION['mensaje'] = "Resultado médico subido exitosamente.";
+                    $_SESSION['alert_type'] = "success";
+                    header("Location: ../views/admin/gstn.resultados.php");
+                    exit();
+                    
+                }else{
+                    $_SESSION['mensaje'] = "Error al subir el resultado médico.";
+                    $_SESSION['alert_type'] = "danger";
+                    header("Location: ../views/admin/gstn.resultados.php");
+                    exit();
+                }
             }
         } catch (Exception $e) {
             $_SESSION['mensaje'] = "Error: " . $e->getMessage();

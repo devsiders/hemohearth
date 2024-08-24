@@ -13,38 +13,36 @@ if (!isset($_SESSION['rol'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../assets/styles/bootstrap.min.css">
   <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <title>HemoHearth</title>
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="../../assets/img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
+        <img src="../../assets/img/favicon.png" width="60px" height="70px" class="d-inline-block" alt="Logo">
         HemoHearth</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown mt-1">
-            <a class="nav-link dropdown-toggle" href="#login.html"><i class="bi bi-person-fill"></i> Perfil</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li class="dropdown-submenu">
-                <a class="dropdown-item" href="../../controller/logout.php">Cerrar sesión</a>
-              </li>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-fill"></i> Perfil           
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../../controller/logout.php"><i class="bi bi-box-arrow-in-right"></i> Cerrar sesión</a></li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
   <?php
   require '../../model/datos.php';
 
@@ -65,54 +63,56 @@ if (!isset($_SESSION['rol'])) {
   }
 
   ?>
-  <div class="container mt-5">
-    <form class="" action="#">
-      <h2 class="titulo-registro display-4 text-center mt-5 mb-4">Datos personales</h2>
-      <?php if (isset($_SESSION['mensaje'])): ?>
-        <div class="alert alert-<?php echo $_SESSION['alert_type']; ?>">
-          <?php echo $_SESSION['mensaje']; ?>
-        </div>
-        <?php unset($_SESSION['mensaje']);
-        unset($_SESSION['alert_type']); ?>
-      <?php endif; ?>
-      <div class="row">
-        <div class="col-md-3">
+  <main class="flex-fill">
+    <div class="container mt-5">
+      <form class="border shadow p-3" action="#">
+        <h3 class="text-center text-info mt-2 mb-4">Datos personales</h3>
+        <?php if (isset($_SESSION['mensaje'])): ?>
+          <div class="alert w-50 alert-<?php echo $_SESSION['alert_type']; ?>">
+            <?php echo $_SESSION['mensaje']; ?>
+          </div>
+          <?php unset($_SESSION['mensaje']);
+          unset($_SESSION['alert_type']); ?>
+        <?php endif; ?>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" readonly value="<?php echo $nombre; ?>">
+            </div>
+            <div class="form-group">
+              <label for="documento">Tipo de Documento</label>
+              <input type="text" class="form-control" readonly value="<?php echo $td; ?>">
+            </div>
+          </div>
+          <div class="col-md-3">
           <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" readonly value="<?php echo $nombre; ?>">
+              <label for="nombre">Apellido</label>
+              <input type="text" class="form-control" readonly value="<?php echo $apellido; ?>">
+            </div>
+            <div class="form-group">
+              <label for="documento">Documento</label>
+              <input type="text" class="form-control" readonly value="<?php echo $documento; ?>">
+            </div>
           </div>
+          <div class="col-md-4">
           <div class="form-group">
-            <label for="documento">Tipo de Documento</label>
-            <input type="text" class="form-control" readonly value="<?php echo $td; ?>">
+              <label for="eps">EPS</label>
+              <input type="text" class="form-control" readonly value="<?php echo $eps; ?>">
+          </div>
           </div>
         </div>
-        <div class="col-md-3">
-        <div class="form-group">
-            <label for="nombre">Apellido</label>
-            <input type="text" class="form-control" readonly value="<?php echo $apellido; ?>">
-          </div>
-          <div class="form-group">
-            <label for="documento">Documento</label>
-            <input type="text" class="form-control" readonly value="<?php echo $documento; ?>">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="text" class="form-control" readonly value="<?php echo $email; ?>">
+            </div>
           </div>
         </div>
-        <div class="col-md-4">
-        <div class="form-group">
-            <label for="eps">EPS</label>
-            <input type="text" class="form-control" readonly value="<?php echo $eps; ?>">
-        </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="email">Correo electrónico</label>
-            <input type="text" class="form-control" readonly value="<?php echo $email; ?>">
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
+      </form>
+    </div>
+  </main>
 
   <?php
   $alert = resultados($id);
@@ -133,21 +133,27 @@ if (!isset($_SESSION['rol'])) {
   }
 
   // Llamado de la alerta al usuario. 
-  if ($alerta != "") {
+  if (!isset($_SESSION['alerta_mostrada']) && $alerta != "") {
     echo '<script>
-              alert("' . $alerta . '");
-            </script>';
+            alert("' . $alerta . '");
+          </script>';
+
+    // Marcar que la alerta ha sido mostrada
+    $_SESSION['alerta_mostrada'] = true;
   }
 
   ?>
 
   <div class="mt-5"></div>
 
+  <footer class="bg-light mt-5 text-center sticky-footer" style="background-color: #efd4d4;">
+    <div class="text-center p-3" style="background-color: rgba(241, 237, 237, 0.894);">
+      <p>&copy; 2023 HemoHearth. derechos reservados.</p>
+    </div>
+  </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="../../assets/scripts/bootstrap.min.js"></script>
-  <script src="../../assets/scripts/submenu.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

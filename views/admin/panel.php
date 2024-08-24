@@ -2,8 +2,8 @@
 session_start();
 
 if ($_SESSION['rol'] != 1) {
-    header("Location: usuario.php");
-    exit();
+  header("Location: usuario.php");
+  exit();
 }
 
 ?>
@@ -14,33 +14,30 @@ if ($_SESSION['rol'] != 1) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../assets/styles/bootstrap.min.css">
   <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
-  <link rel="stylesheet" href="ruta_a_bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <title>Panel Administrativo</title>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="../../assets/img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
+        <img src="../../assets/img/favicon.png" width="60px" height="70px" class="d-inline-block" alt="Logo">
         HemoHearth</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown mt-1">
-            <a class="nav-link dropdown-toggle" href="#"><i class="fa fa-user"></i> Admin</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li class="dropdown-submenu">
-                <a class="dropdown-item" href="../../controller/logout.php">Cerrar sesión</a>
-              </li>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-fill"></i> Admin
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../../controller/logout.php"><i class="bi bi-box-arrow-in-right"></i> Cerrar sesión</a></li>
             </ul>
           </li>
         </ul>
@@ -53,62 +50,45 @@ if ($_SESSION['rol'] != 1) {
     <div class="row">
       <div class="col-md-12">
         <h1>Panel administrativo</h1>
-        <?php if (isset($_SESSION['mensaje'])): ?>
-        <div class="alert alert-<?php echo $_SESSION['alert_type']; ?>">
-        <?php echo $_SESSION['mensaje']; ?>
-        </div>
-        <?php unset($_SESSION['mensaje']);
-        unset($_SESSION['alert_type']); ?>
-        <?php endif; ?>
         <p>Este es el panel administrativo de HemoHearth. Aquí puedes gestionar todos los datos y procesos de la clínica.</p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-4">
-        <div class="card">
+        <div class="card shadow">
           <div class="card-header">
             <h5 class="card-title">Pacientes</h5>
           </div>
           <div class="card-body">
             <p>En esta sección puedes gestionar todos los datos de los pacientes de la clínica.</p>
-            <a href="gstn.paciente.php" class="btn btn-dark">Ver pacientes</a>
+            <a href="gstn.paciente.php" class="btn btn-outline-info">Ver pacientes</a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card">
-          <div class="card-header">
-            <h5 class="card-title">Médicos</h5>
-          </div>
-          <div class="card-body">
-            <p>En esta sección puedes gestionar todos los datos de los médicos de la clínica.</p>
-            <a href="#" class="btn btn-dark">Ver médicos</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
+        <div class="card shadow">
           <div class="card-header">
             <h5 class="card-title">Resultados médicos</h5>
           </div>
           <div class="card-body">
             <p>En esta sección puedes subir los resultados médicos de los pacientes.</p>
-            <a href="gstn.resultados.php" class="btn btn-dark">Ver resultados</a>
+            <a href="gstn.resultados.php" class="btn btn-outline-info">Ver resultados</a>
           </div>
         </div>
-        </div>
       </div>
-          <div class="mt-5"></div>
     </div>
+  </div>
+  </div>
+
+  <footer class="mt-5 bg-light text-center fixed-bottom text-lg-start" style="background-color: #efd4d4;">
+    <div class="text-center p-3" style="background-color: rgba(241, 237, 237, 0.894);">
+      <p>&copy; 2023 HemoHearth. derechos reservados.</p>
     </div>
+  </footer>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="../../assets/scripts/bootstrap.min.js"></script>
-<script src="../../assets/scripts/submenu.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
