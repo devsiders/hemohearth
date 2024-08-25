@@ -24,7 +24,7 @@ if ($_SESSION['rol'] != 1) {
       <a class="navbar-brand" href="#">
         <img src="../../assets/img/favicon.png" width="60px" height="70px" class="d-inline-block" alt="Logo">
         HemoHearth</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -61,46 +61,48 @@ if ($_SESSION['rol'] != 1) {
   <div class="container mt-5">
     <div class="card">
       <div class="card-body">
-        <table id="miTabla" class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Tipo documento</th>
-              <th>Documento</th>
-              <th>EPS</th>
-              <th>Correo</th>
-            </tr>
-          </thead>
-          <tfoot>
-            <?php
-            require '../../model/datos.php';
-            $buscar = leerPacientes();
-            while ($datos = mysqli_fetch_array($buscar)) {
-            ?>
+        <div class="table-responsive">
+          <table id="miTabla" class="table table-striped">
+            <thead>
               <tr>
-                <th>
-                  <?php echo $datos[0] ?>
-                  </td>
-                <th>
-                  <?php echo $datos[1] ?>
-                  </td>
-                <th>
-                  <?php echo $datos[2] ?>
-                  </td>
-                <th>
-                  <?php echo $datos[3] ?>
-                  </td>
-                <th>
-                  <?php echo $datos[4] ?>
-                  </td>
-                <th>
-                  <?php echo $datos[5] ?>
-                  </td>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Tipo documento</th>
+                <th>Documento</th>
+                <th>EPS</th>
+                <th>Correo</th>
               </tr>
-            <?php } ?>
-          </tfoot>
-        </table>
+            </thead>
+            <tfoot>
+              <?php
+              require '../../model/datos.php';
+              $buscar = leerPacientes();
+              while ($datos = mysqli_fetch_array($buscar)) {
+              ?>
+                <tr>
+                  <th>
+                    <?php echo $datos[0] ?>
+                    </td>
+                  <th>
+                    <?php echo $datos[1] ?>
+                    </td>
+                  <th>
+                    <?php echo $datos[2] ?>
+                    </td>
+                  <th>
+                    <?php echo $datos[3] ?>
+                    </td>
+                  <th>
+                    <?php echo $datos[4] ?>
+                    </td>
+                  <th>
+                    <?php echo $datos[5] ?>
+                    </td>
+                </tr>
+              <?php } ?>
+            </tfoot>
+          </table>
+        </div>
       </div>
     </div>
   </div>

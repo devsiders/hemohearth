@@ -26,7 +26,7 @@ if ($_SESSION['rol'] != 1) {
       <a class="navbar-brand" href="#">
         <img src="../../assets/img/favicon.png" width="60px" height="70px" class="d-inline-block" alt="Logo">
         HemoHearth</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -81,7 +81,9 @@ if ($_SESSION['rol'] != 1) {
   </div>
   </div>
 
-  <footer class="mt-5 bg-light text-center fixed-bottom text-lg-start" style="background-color: #efd4d4;">
+  <div class="mt-5"></div>
+
+  <footer class="mt-5 bg-light text-center sticky-footer" style="background-color: #efd4d4;">
     <div class="text-center p-3" style="background-color: rgba(241, 237, 237, 0.894);">
       <p>&copy; 2023 HemoHearth. derechos reservados.</p>
     </div>

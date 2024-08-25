@@ -28,7 +28,7 @@ require '../../model/datos.php';
       <a class="navbar-brand" href="#">
         <img src="../../assets/img/favicon.png" width="60px" height="70px" class="navbar-brand" alt="">
         HemoHearth</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -73,82 +73,84 @@ require '../../model/datos.php';
           <?php unset($_SESSION['mensaje']);
           unset($_SESSION['alert_type']); ?>
         <?php endif; ?>
-        <table id="miTabla" class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Tipo documento</th>
-              <th>Documento</th>
-              <th>EPS</th>
-              <th>Resultado</th>
-              <th></th>
-            </tr>
-          </thead>
-          <?php
-          $buscar = pacientes_resultados();
-          while ($datos = mysqli_fetch_array($buscar)) {
-            $id_paciente = $datos[0];
-          ?>
-            <tr>
-              <th>
-                <?php echo $datos[1] ?>
+        <div class="table-responsive">
+          <table id="miTabla" class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Tipo documento</th>
+                <th>Documento</th>
+                <th>EPS</th>
+                <th>Resultado</th>
+                <th></th>
+              </tr>
+            </thead>
+            <?php
+            $buscar = pacientes_resultados();
+            while ($datos = mysqli_fetch_array($buscar)) {
+              $id_paciente = $datos[0];
+            ?>
+              <tr>
+                <th>
+                  <?php echo $datos[1] ?>
+                  </td>
+                <th>
+                  <?php echo $datos[2] ?>
+                  </td>
+                <th>
+                  <?php echo $datos[3] ?>
+                  </td>
+                <th>
+                  <?php echo $datos[4] ?>
+                  </td>
+                <th>
+                  <?php echo $datos[5] ?>
+                  </td>
+                <th>
+                  <?php echo $datos[7] ?>
+                  </td>
+                <td>
+                  <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#results_<?php echo $datos[0]; ?>">Añadir</a>
                 </td>
-              <th>
-                <?php echo $datos[2] ?>
-                </td>
-              <th>
-                <?php echo $datos[3] ?>
-                </td>
-              <th>
-                <?php echo $datos[4] ?>
-                </td>
-              <th>
-                <?php echo $datos[5] ?>
-                </td>
-              <th>
-                <?php echo $datos[7] ?>
-                </td>
-              <td>
-                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#results_<?php echo $datos[0]; ?>">Añadir</a>
-              </td>
-              </th>
-            </tr>
+                </th>
+              </tr>
 
 
-            <div class="modal fade" id="results_<?php echo $datos[0]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Resultados médicos</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form action="../../controller/resultado.examenes.php" method="POST" id="form_results_<?php echo $datos[0]; ?>">
-                      <input type="hidden" name="id" value="<?php echo $datos[0]; ?>">
-                      <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Nombre completo</label>
-                        <input type="text" class="form-control" readonly name="nombre" value="<?php echo $datos[1] . ' ' . $datos[2]; ?>">
-                      </div>
-                      <div class="form-group">
-                        <label for="message-text" class="col-form-label">Documento </label>
-                        <input type="text" class="form-control" readonly value="<?php echo $datos[3] . ' ' . $datos[4]; ?>">
-                      </div>
-                      <div class="form-group mt-2">
-                        <label for="email">Resultado </label>
-                        <input type="number" class="form-control" name="resultado" value="<?php echo $datos[7]; ?>" required>
-                      </div>
-                      <div class="modal-footer mt-3">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                      </div>
-                    </form>
+              <div class="modal fade" id="results_<?php echo $datos[0]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Resultados médicos</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="../../controller/resultado.examenes.php" method="POST" id="form_results_<?php echo $datos[0]; ?>">
+                        <input type="hidden" name="id" value="<?php echo $datos[0]; ?>">
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Nombre completo</label>
+                          <input type="text" class="form-control" readonly name="nombre" value="<?php echo $datos[1] . ' ' . $datos[2]; ?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="message-text" class="col-form-label">Documento </label>
+                          <input type="text" class="form-control" readonly value="<?php echo $datos[3] . ' ' . $datos[4]; ?>">
+                        </div>
+                        <div class="form-group mt-2">
+                          <label for="email">Resultado </label>
+                          <input type="number" class="form-control" name="resultado" value="<?php echo $datos[7]; ?>" required>
+                        </div>
+                        <div class="modal-footer mt-3">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                          <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          <?php } ?>
-        </table>
+            <?php } ?>
+          </table>
+        </div>
       </div>
     </div>
   </div>
