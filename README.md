@@ -1,8 +1,8 @@
-# HemoHearth - Aplicación Web para Centro Médico
+# HemoHearth
 
 ## Descripción
 
-HemoHearth es una aplicación web diseñada para la gestión de pacientes en un centro médico especializado en el tratamiento de patologías como la anemia y la diabetes. La plataforma permite el registro de usuarios (pacientes), inicio de sesión, y genera alertas personalizadas basadas en los resultados médicos ingresados para cada paciente según sus patologías. Los usuarios reciben notificaciones al iniciar sesión en función de su estado de salud.
+HemoHearth es una aplicación web diseñada para la gestión de pacientes en un centro médico especializado en el tratamiento de patologías como la anemia y la diabetes. La plataforma permite el registro de usuarios, inicio de sesión, y genera alertas personalizadas basadas en los resultados médicos ingresados para cada paciente según sus patologías. Los usuarios reciben notificaciones al iniciar sesión en función de su estado de salud.
 
 ## Características
 
