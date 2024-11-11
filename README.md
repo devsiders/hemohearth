@@ -4,7 +4,7 @@
 
 HemoHearth es una aplicación web diseñada para la gestión de pacientes en un centro médico especializado en el tratamiento de patologías como la anemia y la diabetes. La plataforma permite el registro de usuarios, inicio de sesión, y genera alertas personalizadas basadas en los resultados médicos ingresados para cada paciente según sus patologías. Los usuarios reciben notificaciones al iniciar sesión en función de su estado de salud.
 
-## Características
+## Funciones
 
 - **Registro de usuarios**: Los usuarios pueden registrarse proporcionando sus datos personales.
 - **Inicio de sesión**: Los pacientes pueden iniciar sesión en la plataforma para acceder a su información médica.
@@ -20,16 +20,3 @@ HemoHearth es una aplicación web diseñada para la gestión de pacientes en un 
 - **XAMPP**: Paquete de software que incluye Apache y MySQL para ejecutar la aplicación localmente.
 - **HTML/CSS/Bootstrap**: Para el diseño y la estructura del frontend.
 - **JavaScript**: Validaciones y manejo de alertas en el frontend.
-
-## Instalación
-
-### Requisitos Previos
-
-- **XAMPP** instalado con Apache y MySQL activos.
-
-### Pasos de Instalación
-
-1. **Clona el repositorio**:
-   ```bash
-   git clone https://github.com/tu-usuario/hemohearth.git
-   cd hemohearth
