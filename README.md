@@ -8,7 +8,6 @@ HemoHearth es una aplicación web diseñada para la gestión de pacientes en un 
 
 - **Registro de usuarios**: Los usuarios pueden registrarse proporcionando sus datos personales.
 - **Inicio de sesión**: Los pacientes pueden iniciar sesión en la plataforma para acceder a su información médica.
-- **Gestión de pacientes**: El personal médico puede ver todos los pacientes que esta en la aplicación web.
 - **Gestión de resultados médicos**: El personal médico puede ingresar y actualizar los resultados de las pruebas de los pacientes.
 - **Alertas de salud**: Se envían notificaciones automáticas a los usuarios si sus valores médicos indican algún riesgo.
 - **Sistema de roles**: Panel de administración para médicos y usuarios del centro para registrar resultados y mirar los datos personales.
