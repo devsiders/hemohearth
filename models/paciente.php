@@ -1,6 +1,6 @@
 <?php
 
-require_once './config/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 class Paciente
 {
@@ -52,8 +52,10 @@ class Paciente
     {
         $conne = self::conexion();
 
-        $sql = "SELECT * FROM resultados_medicos where id_paciente=" . $id;
+        $sql = "SELECT * FROM resultados_medicos where id_paciente = ?";
         $stmt = $conne->prepare($sql);
+        $stmt->bind_param("i", $id);
+
         $stmt->execute();
 
         $resultado = $stmt->get_result();

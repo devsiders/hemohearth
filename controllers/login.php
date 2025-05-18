@@ -23,19 +23,21 @@ class LoginController {
                 $_SESSION['id_persona'] = $login['id'];
                 // Comprueba el rol del usuario y redirige según el rol.
                 if ($_SESSION['rol'] == 1) {
-                    header("Location: ../views/admin/index.php");
+                    header("Location: /hemohearth/views/admin/index.php");
+                    exit();
                 } else {
-                    header("Location: ../views/perfil/index.php");
+                    header("Location: /hemohearth/views/perfil/index.php");
+                    exit();
                 }
             } else {
                 session_start();
                 $_SESSION['error'] = "Correo y/o contraseña incorrecta.";
-                header("Location: ../views/auth/login.php");
+                header("Location: /hemohearth/views/auth/login.php");
                 exit();
             }
 
         } else {
-            header("Location: ../views/auth/login.php");
+            header("Location: /hemohearth/views/auth/login.php");
             exit();
         }
         

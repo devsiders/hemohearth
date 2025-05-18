@@ -21,10 +21,10 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg p-0 navbar-light shadow-sm">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="../public/img/favicon.png" width="60px" height="70px" class="d-inline-block" alt="Logo">
+        <img src="../../public/img/favicon.png" width="60px" height="60px" class="d-inline-block" alt="Logo">
         HemoHearth</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,13 +56,13 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
 
     <div class="row">
       <div class="col-md-4">
-        <div class="card shadow">
+        <div class="card shadow-sm">
           <div class="card-header">
             <h5 class="card-title">Resultados médicos</h5>
           </div>
           <div class="card-body">
             <p>En esta sección puedes subir los resultados médicos de los pacientes.</p>
-            <a href="paciente.php" class="btn btn-info">Ver resultados</a>
+            <a href="paciente.php" class="btn btn-info text-white">Ver resultados</a>
           </div>
         </div>
       </div>

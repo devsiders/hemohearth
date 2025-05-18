@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,26 +18,26 @@
         <div class="row p-5 justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Login</div>
+                    <div class="card-header">Login</div>                   
+                        <div class="card-body">
                         <?php foreach (['mensaje' => 'green', 'error' => 'red'] as $tipo => $color) {
-                            if (isset($_SESSION[$tipo])) { echo "<p style='color:$color;'>{$_SESSION[$tipo]}</p>";
+                            if (isset($_SESSION[$tipo])) { echo "<p style='color:$color; text-align:center;'>{$_SESSION[$tipo]}</p>";
                                 unset($_SESSION[$tipo]);}
                         }
-                        ?>                    
-                        <div class="card-body">
+                        ?> 
                         <form action="../../controllers/login.php" method="POST">
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
-                                <label for="floatingInput">Email</label>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" placeholder="name@example.com" required>
                             </div>
-                            <div class="form-floating">
-                                <input type="password" class="form-control" name="contrasena" id="floatingPassword" placeholder="Password">
-                                <label for="floatingPassword">Contraseña</label>
+                            <div class="form-group">
+                                <label class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" required>
                             </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-info">Iniciar sesión</button>
+                            <div class="d-grid mt-3">
+                                <button type="submit" class="btn btn-info text-white">Iniciar sesión</button>
                             </div>
-                            <p class="mt-3">¿No tienes una cuenta? <a href="registro.php" id="switchToRegister">Registrate aquí</a></p>
+                            <p class="mt-3 text-muted">¿No tienes una cuenta? <a href="registro.php" id="switchToRegister">Registrate aquí</a></p>
                         </form>
                     </div>
                 </div>

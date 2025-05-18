@@ -86,10 +86,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Si todo ha ido bien, se confirma la transacción
-        mysqli_commit($conexion);
+        mysqli_commit($conne);
 
         // Redirigir con mensaje de éxito
-        $_SESSION['mensaje'] = "Registrado con éxito.";
+        $_SESSION['mensaje'] = "Registrado exitosamente.";
         header("Location: ../views/auth/login.php");
         exit();
 

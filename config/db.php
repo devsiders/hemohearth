@@ -12,7 +12,7 @@ class Conexion{
 		if ($this->conne->connect_error) {
 			die("Error de conexión: " . $this->conne->connect_error);
 		}
-
+		
 		return $this->conne;
 		
 	}

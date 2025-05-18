@@ -1,11 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
-  header("Location: ./perfil/index.php");
-  exit();
-}
-
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +14,11 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
   <title>HemoHearth</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
-  <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light">
+<body>
+  <nav class="navbar navbar-expand-lg p-0 navbar-light shadow-sm">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="../../public/img/favicon.png" width="60px" height="70px" class="d-inline-block" alt="Logo">
+        <img src="../../public/img/favicon.png" width="60px" height="60px" class="d-inline-block" alt="Logo">
         HemoHearth</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -45,30 +39,25 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
   </nav>
 
   <?php
-  require '../../models/paciente.php';
+  require_once '../../models/paciente.php';
 
   $datos = null;
 
-  if (!isset($_SESSION['id_persona'])) {
+  if (isset($_SESSION['id_persona'])) {
     $datos = Paciente::traerP($_SESSION['id_persona']);
   }
 
   ?>
-  <main>
-    <div class="container mt-5">
-      <div class="border shadow p-5 text-center bg-light rounded">
-        <h2 class="text-primary">¡Bienvenido, <?php echo $datos['nombre'] . ' ' . $datos['apellido']; ?>!</h2>
-        <p class="lead text-muted">Nos alegra tenerte de vuelta en tu perfil.</p>
-      </div>
-    </div>
-  </main>
 
   <?php
-    require_once '../../models/paciente.php';
 
-    $alert = Paciente::resultados($id);
+    $alert = Paciente::resultados($_SESSION['id_persona']);
 
-    $userID = mysqli_fetch_array($alert);
+    $userID = null;
+
+    if ($alert && $alert instanceof mysqli_result) {
+        $userID = mysqli_fetch_array($alert);
+    }
 
     $alerta = "";
 
@@ -85,7 +74,6 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
 
   ?>
 
-  // Llamado de la alerta al usuario. 
   <?php if (!isset($_SESSION['alerta_mostrada']) && $alerta != ""): ?>
     <div class="container mt-4">
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -95,6 +83,15 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
     </div>
     <?php $_SESSION['alerta_mostrada'] = true; ?>
   <?php endif; ?>
+
+  <main class="vh-100">
+    <div class="container mt-5">
+      <div class="border-0 shadow-sm p-5 text-center bg-light rounded">
+        <h2 class="text-primary">¡Bienvenido, <?php echo $datos['nombre'] . ' ' . $datos['apellido']; ?>!</h2>
+        <p class="lead text-muted">Nos alegra tenerte de vuelta en tu perfil.</p>
+      </div>
+    </div>
+  </main>
 
 
   <footer class="bg-light mt-5 text-center sticky-footer">

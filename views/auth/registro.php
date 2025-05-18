@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -17,78 +20,77 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">Registro</div>
-                    <?php foreach (['mensaje' => 'green', 'error' => 'red'] as $tipo => $color) {
-                        if (isset($_SESSION[$tipo])) { echo "<p style='color:$color;'>{$_SESSION[$tipo]}</p>";
-                            unset($_SESSION[$tipo]);}
-                        }
-                    ?>
                     <div class="card-body">
+                        <?php foreach (['mensaje' => 'green', 'error' => 'red'] as $tipo => $color) {
+                            if (isset($_SESSION[$tipo])) { echo "<p style='color:$color; text-align:center;'>{$_SESSION[$tipo]}</p>";
+                                unset($_SESSION[$tipo]);}
+                        }
+                        ?>
                         <form id="registroFormulario" action="../../controllers/registro.php" method="POST">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group mt-3">
-                                        <label class="form-label">Nombre
-                                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
-                                        </label>
+                                        <label class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
                                     </div>
                                     <div class="form-group mt-3">
-                                        <label class="form-label">Tipo de documento
-                                            <select name="td" class="form-select">
-                                                <option value="CC">Cédula de Ciudadanía</option>
-                                                <option value="CE">Cédula de Estranjería</option>
-                                                <option value="TI">Tarjeta de Identidad</option>
-                                                <option value="PP">Pasaporte</option>
+                                        <label class="form-label">Tipo de documento</label>
+                                        <select name="td" class="form-select">
+                                            <option value="CC">Cédula de Ciudadanía</option>
+                                            <option value="CE">Cédula de Estranjería</option>
+                                            <option value="TI">Tarjeta de Identidad</option>
+                                            <option value="PP">Pasaporte</option>
                                             </select>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group mt-3">
-                                        <label for="apellido" class="form-label">Apellido
-                                            <input type="text" class="form-control" name="apellido" placeholder="Apellido" required>
-                                        </label>
+                                        <label for="apellido" class="form-label">Apellido</label>
+                                        <input type="text" class="form-control" name="apellido" placeholder="Apellido" required>
                                     </div>
                                     <div class="form-group mt-3">
-                                        <label for="docu" class="form-label">Documento
-                                            <input type="number" class="form-control" name="documento" min="6" max="10" placeholder="Documento" required>
-                                        </label>
+                                        <label for="docu" class="form-label">Documento</label>
+                                        <input type="number" class="form-control" name="documento" maxlength="10" placeholder="Documento" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <label class="forml-label">EPS
-                                    <input type="text" class="form-control" name="eps" placeholder="Eps" required>
-                                </label>
+                                <label class="form-label">EPS</label>
+                                <input type="text" class="form-control" name="eps" placeholder="EPS">
                             </div>
                             <div class="form-group mt-3">
-                                <label for="forml-label">Email
-                                    <input type="email" class="form-control" name="correo" placeholder="Email" required>
-                                </label>
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" name="correo" placeholder="Email" required>
                             </div>
                             <div class="form-group mt-3">
-                                <label for="forml-label">Contraseña
-                                    <input type="password" class="form-control" name="clave" minlength="8" title="Debe tener al menos 8 caracteres" placeholder="Contraseña" required>
-                                </label>
+                                <label class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" name="clave" minlength="8" title="Debe tener al menos 8 caracteres" placeholder="Contraseña" required>
                             </div>
                             <div class="form-group mt-3">
                                 <small class="text-muted">¿Tienes alguno de estos sintomas?</small>
-                                <select class="form-select" name="sint" multiple size="5">
+                                <select class="form-select" name="sint" multiple size="3">
                                     <?php
                                     require_once '../../models/datos.php';
 
                                     $patologias = Datos::patologia();
-                                    while ($patologia = $patologias->fetch_assoc()) {
-                                        $nombre = htmlspecialchars($patologia['nombre']);
-                                        echo "<option value=\"$nombre\">$nombre</option>";
+                                    
+                                    if ($patologias && $patologias->num_rows > 0) {
+                                        while ($patologia = $patologias->fetch_assoc()) {
+                                            $nombre = htmlspecialchars($patologia['nombre']);
+                                            echo "<option value=\"$nombre\">$nombre</option>";
+                                        }
+                                    } else {
+                                        echo "<option value=\"\">No hay patologías registradas</option>";
                                     }
                                     ?>
                                 </select>
                             </div>
                             <div class="d-grid mt-3">
                                 <button type="submit" id="enviar"
-                                    class="btn btn-info">Registrarse</button>
+                                    class="btn btn-info text-white">Registrarse</button>
                             </div>
-                            <p class="mt-3">¿Ya tienes una cuenta? <a href="login.php" id="switchToRegister">Inicia sesión</a>
+                            <p class="mt-3 text-muted">¿Ya tienes una cuenta? <a href="login.php" id="switchToRegister">Inicia sesión</a>
                             </p>
                         </form>
                     </div>
