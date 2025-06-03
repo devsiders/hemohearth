@@ -21,11 +21,11 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg p-0 navbar-light shadow-sm">
+  <nav class="navbar navbar-expand-lg py-2 navbar-light shadow-sm">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="../../public/img/favicon.png" width="60px" height="60px" class="d-inline-block" alt="Logo">
-        HemoHearth</a>
+        <img src="../../public/img/Logo.svg" alt="Logo HemoHearth">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
